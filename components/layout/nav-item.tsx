@@ -5,7 +5,7 @@ import {usePathname} from "next/navigation";
 import {cn} from "@/lib/utils";
 import {buttonVariants} from "@/components/ui/button";
 
-const NavItem = ({label, link}: {label: string, link: string}) => {
+const NavItem = ({label, link, clickCallBack}: {label: string; link: string; clickCallBack?: () => void;}) => {
     const pathName = usePathname();
     const isActive = pathName === link;
 
@@ -18,6 +18,7 @@ const NavItem = ({label, link}: {label: string, link: string}) => {
                     "w-full justify-start text-lg text-muted-foreground hover:text-foreground",
                     isActive && "text-foreground"
                     )}
+                onClick={() => {if (clickCallBack) clickCallBack();}}
             >
                 {label}
             </Link>

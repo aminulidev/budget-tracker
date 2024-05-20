@@ -1,6 +1,10 @@
+
 import React from 'react';
 import Logo from "@/components/logo";
 import NavItem from "@/components/layout/nav-item";
+import {UserButton} from "@clerk/nextjs";
+import {ThemeToggler} from "@/components/theme-toggler";
+import {navLinks} from "@/constants/routes";
 
 interface DashboardNavProps {
     navLinks: {
@@ -8,12 +12,6 @@ interface DashboardNavProps {
         link: string
     }[]
 }
-
-const navLinks = [
-    {label: "Dashboard", link: "/"},
-    {label: "Transactions", link: "/transactions"},
-    {label: "Manage", link: "/manage"},
-];
 
 const DashboardNav = () => {
     return (
@@ -24,6 +22,11 @@ const DashboardNav = () => {
                     <div className="flex h-full">
                         {navLinks.map(link => <NavItem key={link.label} label={link.label} link={link.link} />)}
                     </div>
+                </div>
+
+                <div className="flex items-center gap-2">
+                    <ThemeToggler />
+                    <UserButton afterSignOutUrl="/sign-in" />
                 </div>
             </nav>
         </div>
