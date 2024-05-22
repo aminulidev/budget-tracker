@@ -26,7 +26,6 @@ import SkeletonWrapper from "@/components/skeleton-wrapper";
 import {UserSettings} from "@prisma/client";
 import {useCallback, useEffect} from "react";
 import {UpdateUserCurrency} from "@/app/wizard/_actions";
-// @ts-ignore
 import {toast} from "sonner";
 
 export function CurrencyCombobox() {
