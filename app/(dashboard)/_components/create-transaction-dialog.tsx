@@ -79,8 +79,8 @@ const CreateTransactionDialog = ({trigger, type}: Props) => {
                             control={form.control}
                             name="category"
                             render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel>Amount</FormLabel>
+                                <FormItem className="flex flex-col gap-1.5">
+                                    <FormLabel>Category</FormLabel>
                                     <FormControl>
                                         <CategoryPicker type={type} />
                                     </FormControl>
