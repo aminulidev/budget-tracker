@@ -4,6 +4,7 @@ import {redirect} from "next/navigation";
 import prisma from "@/lib/prisma";
 import {Button} from "@/components/ui/button";
 import CreateTransactionDialog from "@/app/(dashboard)/_components/create-transaction-dialog";
+import Overview from "@/app/(dashboard)/_components/overview";
 
 const DashboardPage = async () => {
     const user = await currentUser();
@@ -45,6 +46,7 @@ const DashboardPage = async () => {
                     </div>
                 </div>
             </div>
+            <Overview userSettings={userSettings} />
         </div>
     );
 };
