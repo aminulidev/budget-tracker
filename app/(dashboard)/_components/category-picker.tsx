@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import {CreateTransactionSchemaType} from "@/schema/transactions";
 import {TransactionType} from "@/lib/types";
 import {useQuery} from "@tanstack/react-query";
 import {Category} from "@prisma/client";
