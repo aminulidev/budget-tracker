@@ -6,6 +6,7 @@ import {differenceInDays, startOfMonth} from "date-fns";
 import {MAX_DATE_RANGE_DAYS} from "@/lib/constants";
 import {toast} from "sonner";
 import StatsCards from "@/app/(dashboard)/_components/stats-cards";
+import CategoryStats from "@/app/(dashboard)/_components/category-stats";
 
 const Overview = ({userSettings} : {userSettings: UserSettings}) => {
     const [dateRange, setDateRange] = useState<{ from: Date, to: Date }>({
@@ -41,6 +42,11 @@ const Overview = ({userSettings} : {userSettings: UserSettings}) => {
             </div>
             <div className="container flex w-full flex-col gap-2">
                 <StatsCards
+                    userSettings={userSettings}
+                    from={dateRange.from}
+                    to={dateRange.to}
+                />
+                <CategoryStats
                     userSettings={userSettings}
                     from={dateRange.from}
                     to={dateRange.to}
