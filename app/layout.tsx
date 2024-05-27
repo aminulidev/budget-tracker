@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en" className="dark" style={{colorScheme: "dark"}}>
       <body className={inter.className}>
         <RootProvider>{children}</RootProvider>
-        <Toaster richColor position="bottom-right" />
+        <Toaster position="bottom-right" />
       </body>
     </html>
   </ClerkProvider>

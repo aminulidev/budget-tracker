@@ -40,7 +40,7 @@ const Overview = ({userSettings} : {userSettings: UserSettings}) => {
                     />
                 </div>
             </div>
-            <div className="container flex w-full flex-col gap-2">
+            <div className="container flex w-full flex-col gap-2 mb-10">
                 <StatsCards
                     userSettings={userSettings}
                     from={dateRange.from}
