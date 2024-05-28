@@ -5,6 +5,7 @@ import prisma from "@/lib/prisma";
 import {Button} from "@/components/ui/button";
 import CreateTransactionDialog from "@/app/(dashboard)/_components/create-transaction-dialog";
 import Overview from "@/app/(dashboard)/_components/overview";
+import TransactionHistory from "@/app/(dashboard)/_components/transaction-history";
 
 const DashboardPage = async () => {
     const user = await currentUser();
@@ -47,6 +48,7 @@ const DashboardPage = async () => {
                 </div>
             </div>
             <Overview userSettings={userSettings} />
+            <TransactionHistory userSettings={userSettings} />
         </div>
     );
 };
