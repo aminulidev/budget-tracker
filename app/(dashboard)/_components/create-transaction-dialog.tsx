@@ -206,6 +206,10 @@ const CreateTransactionDialog = ({trigger, type}: Props) => {
                     <Button
                         onClick={form.handleSubmit(onSubmit)}
                         disabled={isPending}
+                        className={cn(
+                            "bg-green-700 text-white hover:bg-green-600",
+                            type === "expense" && "bg-rose-700 hover:bg-rose-600"
+                        )}
                     >
                         {isPending ? <Loader2 className="animate-spin" /> : "Create"}
                     </Button>
