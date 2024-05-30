@@ -9,19 +9,19 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 // Models
 
 model UserSettings {
-  userId   String @id
+  userId   String @id @map("_id") // Clerk's user ID can be used as a string
   currency String
 }
 
 model Category {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
   name      String
   userId    String
@@ -29,10 +29,11 @@ model Category {
   type      String   @default("income")
 
   @@unique([name, userId, type])
+  @@index([userId])
 }
 
 model Transaction {
-  id        String   @id @default(uuid())
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 
@@ -44,9 +45,12 @@ model Transaction {
 
   category     String
   categoryIcon String
+
+  @@index([userId, date])
 }
 
 model MonthHistory {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
   userId  String
   day     Int
   month   Int
@@ -55,9 +59,11 @@ model MonthHistory {
   expense Float
 
   @@unique([day, month, year, userId])
+  @@index([userId])
 }
 
 model YearHistory {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
   userId  String
   month   Int
   year    Int
@@ -65,4 +71,5 @@ model YearHistory {
   expense Float
 
   @@unique([month, year, userId])
+  @@index([userId])
 }
