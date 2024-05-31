@@ -1,0 +1,3 @@
+[build]
+  # Disable dependency caching for Prisma
+  environment = { PRISMA_TELEMETRY_INFORMATION='e2e-test' }
